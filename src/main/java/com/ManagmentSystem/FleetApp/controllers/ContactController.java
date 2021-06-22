@@ -14,8 +14,7 @@ import java.util.Optional;
 @Controller
 public class ContactController {
 
-    @Autowired
-    private StateService stateService;
+    @Autowired private StateService stateService;
     @Autowired private CountryService countryService;
     @Autowired private ContactService contactService;
 
