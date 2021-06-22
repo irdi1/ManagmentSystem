@@ -17,6 +17,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
+    private String name;
     private String address;
     private String city;
     private String phone;
