@@ -5,6 +5,7 @@ $('document').ready(function() {
 		event.preventDefault();
 		var href= $(this).attr('href');
 		$.get(href, function(employee, status){
+		    $('#txtUsernameEdit').val(employee.username);
 			$('#txtAddressEdit').val(employee.address);
 			$('#txtCityEdit').val(employee.city);
 			$('#ddlNationalityEdit').val(employee.countryid);

@@ -337,6 +337,7 @@
                           <tbody>
                           <tr>
                               <th>Photo</th>
+                              <th><i class="icon_profile"></i> Username</th>
                               <th><i class="icon_profile"></i> Full Name</th>
                               <th><i class="icon_calendar"></i>Hire Date</th>
                               <th><i class="icon_mail_alt"></i> Email</th>
@@ -350,6 +351,7 @@
                                       <img th:src="@{'/img/photos/' + ${employee.username} +'.jpg'}" width="40" height="40">
                                   </a>
                               </td>
+                              <td><a th:text="${employee.username} ?: 'Check'" th:href="@{/employees/assignUsername/(id=${employee.id})}"></a></td>
                               <td th:text="${employee.firstname} + ' ' + ${employee.lastname}">Fullname</td>
                               <td th:text="${employee.hireDate}">HireDate</td>
                               <td th:text="${employee.email}">Email</td>
@@ -359,7 +361,7 @@
                                   <div class="btn-group">
                                       <a class="btn btn-primary" id="editButton" th:href="@{/employees/findById/(id=${employee.id})}"><i class="icon_pencil-edit"></i></a>
                                       <a class="btn btn-success" id="detailsButton" th:href="@{/employees/findById/(id=${employee.id})}"><i class="icon_document_alt"></i></a>
-                                      <a class="btn btn-danger" id="deleteButton" th:href="@{/employees/delete/(id=${employee.id})}"><i class="icon_close_alt2"></i></a>
+                                      <a class="btn btn-danger" id="deleteButton" th:href="@{/employees/deletes/(id=${employee.id})}"><i class="icon_close_alt2"></i></a>
                                   </div>
                               </td>
                           </tr>
@@ -577,7 +579,7 @@
   </div>
 
   <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <form th:action="@{/employees/addNew}" method="post">
+      <form th:action="@{/employees/updates}" method="post">
           <div class="modal-dialog modal-lg" role="document" style="width:70%">
               <div class="modal-content">
                   <div class="modal-header">
@@ -760,6 +762,7 @@
                                   </td>
                               </tr>
                           </table>
+                          <input type="hidden" id="txtUsernameEdit" name="username">
                           <button type="submit" class="btn btn-primary">Sign in</button>
                       </form>
                   </div>
