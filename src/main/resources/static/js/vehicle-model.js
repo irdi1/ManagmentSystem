@@ -12,17 +12,17 @@ $('document').ready(function() {
     });
 
 	$('.table #detailsButton').on('click',function(event) {
-		event.preventDefault();
-		var href= $(this).attr('href');
-		$.get(href, function(vehicleModel, status){
-	    	$('#idDetails').val(vehicleModel.id);
-            $('#descriptionDetails').val(vehicleModel.description);
-            $('#detailsDetails').val(vehicleModel.details);
-			$('#lastModifiedByDetails').val(vehicleModel.lastModifiedBy);
-//			$('#lastModifiedDateDetails').val(vehicleModel.lastModifiedDate.substr(0,19).replace("T", " "));
-		});
-		$('#detailsModal').modal();
-	});
+    		event.preventDefault();
+    		var href= $(this).attr('href');
+    		$.get(href, function(vehicleModel, status){
+    			$('#idDetails').val(vehicleModel.id);
+    			$('#descriptionDetails').val(vehicleModel.description);
+    			$('#detailsDetails').val(vehicleModel.details);
+    			$('#lastModifiedByDetails').val(vehicleModel.lastModifiedBy);
+    			$('#lastModifiedDateDetails').val(vehicleModel.lastModifiedDate.substr(0,19).replace("T", " "));
+    		});
+    		$('#detailsModal').modal();
+    	});
 
     $('.table #deleteButton').on('click', function (event) {
         event.preventDefault();
